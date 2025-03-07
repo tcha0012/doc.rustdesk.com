@@ -171,11 +171,11 @@ sudo rm /swap.img
 cd ~ && mkdir -p docker/rustdesk-server/data
 ```
 
-2. Create `compose.yml`
+2. Create `docker-compose.yml`
 
-Right click `rustdesk-server` folder, create new file named `compose.yml`.
+Right click `rustdesk-server` folder, create new file named `docker-compose.yml`.
 
-Paste this to `compose.yml`.
+Paste this to `docker-compose.yml`.
 
 {{% notice note %}}
 You could modify the line with `hbbs` to your server's LAN IP  temporarily (If you're deploying in your LAN) to ensure it is working. After you verify your server is working, you **should** change back.
@@ -186,6 +186,7 @@ Having problem after you changed LAN IP to domain? You should check [this articl
 {{% /notice %}}
 
 ```yaml
+version: "3"
 services:
   hbbs:
     container_name: hbbs
@@ -247,7 +248,7 @@ Open these required ports:
 
 ### 5. Some basics
 
-1. How to apply the settings after you modified `compose.yml`?
+1. How to apply the settings after you modified `docker-compose.yml`?
 
 Run this again:
 ```
@@ -272,7 +273,7 @@ Drag and drop them to VSCode Explorer if you want to upload it.
 
 Use [Watchtower](https://containrrr.dev/watchtower/).
 
-Create folder and put the `compose.yml` in it.
+Create folder and put the `docker-compose.yml` in it.
 
 ```
 mkdir ~/docker/watchtower
